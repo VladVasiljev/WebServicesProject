@@ -22,7 +22,7 @@ public class NumeralToRomanNumeral {
     @GET
     @Path("/{param}")
     @Produces(MediaType.TEXT_HTML)
-  public Response sayHelloWorld(@PathParam("param") int message) {
+  public Response NumberToRomanNumeral(@PathParam("param") int message) {
         RomanNumeralConverter con = new RomanNumeralConverter();
         int input = message;
         Integer.toString(input);
