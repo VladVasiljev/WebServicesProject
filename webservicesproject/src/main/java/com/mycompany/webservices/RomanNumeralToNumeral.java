@@ -20,14 +20,14 @@ import javax.ws.rs.core.Response;
 public class RomanNumeralToNumeral {
     
   @GET
-  @Path("/{param}")
+  @Path("/{num}")
   @Produces(MediaType.TEXT_HTML)
-  public Response romanNumeralToNumeral(@PathParam("param") String message) {
+  public Response romanNumeralToNumeral(@PathParam("num") String message) {
     RomanNumeralConverter con = new RomanNumeralConverter();
         String str = message.toUpperCase();
         //Integer.parseInt(str);
         int getResult = con.romanToDecimal(str);
-        String output = "<html><body><h1>Roman Numeral Entered Was " + message + " Converted Roman Numeral to Number is " + getResult + "</h1></body></html>";
+        String output = "<html><body><h3>Roman Numeral Entered Was</h3><h1> " + message + "</h1><h3> Converted Roman Numeral to Number is " + getResult + "</h3></body></html>";
 					
     return Response.status(200).entity(output).build(); 
   }

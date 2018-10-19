@@ -27,10 +27,10 @@ public class NumeralToRomanNumeral {
         int input = message;
         Integer.toString(input);
         String getResult = con.IntegerToRomanNumeral(input);
-        String output = "<html><body><h1>Number Entered Was " + message + " Converted Number is " + getResult + "</h1></body></html>";
+        String output = "<html><body><p>Number Entered Was </p><h1>" + message + "</h1> Converted Number is </p><h1>" + getResult + "</h1></body></html>";
        
     return Response.status(200).entity(output).build(); 
-  }
+    }
   
   
   
