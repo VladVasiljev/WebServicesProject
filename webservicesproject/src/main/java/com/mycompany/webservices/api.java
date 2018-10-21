@@ -16,16 +16,17 @@ import javax.ws.rs.core.Response;
  *
  * @author Vladislavs Vasiljevs
  */
-@Path("/weather")
+@Path("/weather")//http://127.0.0.1:49000/api/weather/
 public class api {
     
         @GET
-    @Path("/q={city}&mode={mode}")
+    @Path("/q={city}&mode={mode}")//http://127.0.0.1:49000/api/weather/q=Dublin&mode=json
     public Response getWeather(@PathParam("city") String city, @PathParam("mode") String mode) {
-        String URL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&mode=" + mode + "&appid=5862c5b7badb7604d908a212edf84826";
+        String apiKey = "&appid=5862c5b7badb7604d908a212edf84826";
+        String URL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&mode=" + mode + apiKey;
         System.out.println(URL);
-        Client c = ClientBuilder.newClient();
-        Response r = c.target(URL).request().get();
-        return r;
+        Client client = ClientBuilder.newClient();
+        Response response = client.target(URL).request().get();
+        return response;
     }
 }

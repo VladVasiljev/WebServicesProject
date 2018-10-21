@@ -10,63 +10,63 @@ public class RomanNumeralConverter {
     public RomanNumeralConverter() {
         super();
     }
-
-    public String IntegerToRomanNumeral(int input) {
-        if (input < 1 || input > 4999) {
+    //https://stackoverflow.com/questions/12967896/converting-integers-to-roman-numerals-java code came from stackoverflow
+    public String IntegerToRomanNumeral(int userInput) {
+        if (userInput < 1 || userInput > 4999) {
             return "Invalid Roman Number Value";
         }
         String s = "";
-        while (input >= 1000) {
+        while (userInput >= 1000) {
             s += "M";
-            input -= 1000;
+            userInput -= 1000;
         }
-        while (input >= 900) {
+        while (userInput >= 900) {
             s += "CM";
-            input -= 900;
+            userInput -= 900;
         }
-        while (input >= 500) {
+        while (userInput >= 500) {
             s += "D";
-            input -= 500;
+            userInput -= 500;
         }
-        while (input >= 400) {
+        while (userInput >= 400) {
             s += "CD";
-            input -= 400;
+            userInput -= 400;
         }
-        while (input >= 100) {
+        while (userInput >= 100) {
             s += "C";
-            input -= 100;
+            userInput -= 100;
         }
-        while (input >= 90) {
+        while (userInput >= 90) {
             s += "XC";
-            input -= 90;
+            userInput -= 90;
         }
-        while (input >= 50) {
+        while (userInput >= 50) {
             s += "L";
-            input -= 50;
+            userInput -= 50;
         }
-        while (input >= 40) {
+        while (userInput >= 40) {
             s += "XL";
-            input -= 40;
+            userInput -= 40;
         }
-        while (input >= 10) {
+        while (userInput >= 10) {
             s += "X";
-            input -= 10;
+            userInput -= 10;
         }
-        while (input >= 9) {
+        while (userInput >= 9) {
             s += "IX";
-            input -= 9;
+            userInput -= 9;
         }
-        while (input >= 5) {
+        while (userInput >= 5) {
             s += "V";
-            input -= 5;
+            userInput -= 5;
         }
-        while (input >= 4) {
+        while (userInput >= 4) {
             s += "IV";
-            input -= 4;
+            userInput -= 4;
         }
-        while (input >= 1) {
+        while (userInput >= 1) {
             s += "I";
-            input -= 1;
+            userInput -= 1;
         }
         return s;
     }
@@ -98,17 +98,17 @@ public class RomanNumeralConverter {
     }
 
     // Finds decimal value of a given romal numeral 
-    int romanToDecimal(String str) {
+    int romanToDecimal(String usersString) {
         // Initialize result 
         int res = 0;
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < usersString.length(); i++) {
             // Getting value of symbol s[i] 
-            int s1 = value(str.charAt(i));
+            int s1 = value(usersString.charAt(i));
 
             // Getting value of symbol s[i+1] 
-            if (i + 1 < str.length()) {
-                int s2 = value(str.charAt(i + 1));
+            if (i + 1 < usersString.length()) {
+                int s2 = value(usersString.charAt(i + 1));
 
                 // Comparing both values 
                 if (s1 >= s2) {

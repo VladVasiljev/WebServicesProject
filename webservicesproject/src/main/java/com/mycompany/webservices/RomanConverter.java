@@ -16,32 +16,32 @@ import javax.ws.rs.core.Response;
 
 
 					
-@Path("/converter") 
+@Path("/converter") //http://127.0.0.1:49000/api/converter/
 public class RomanConverter {
     					
     @GET
-    @Path("/number-roman={param}")
+    @Path("/number-roman={param}")//http://127.0.0.1:49000/api/converter/number-roman=123
     @Produces(MediaType.TEXT_HTML)
-  public Response NumberToRomanNumeral(@PathParam("param") int message) {
+  public Response NumberToRomanNumeral(@PathParam("param") int input) {//input == usrs input we then pass the value over to userInput
         RomanNumeralConverter con = new RomanNumeralConverter();
-        int input = message;
-        Integer.toString(input);
-        String getResult = con.IntegerToRomanNumeral(input);
-        String output = "<html><body><h1>Number Entered Was " + message + " Converted Number is " + getResult + "</h1></body></html>";
+        int userInput = input;
+        Integer.toString(userInput);
+        String getResult = con.IntegerToRomanNumeral(userInput);
+        String output =  "<html><body><h3>Number Entered  Was</h3><h1> " + input + "</h1><h3> Converted Number to Roman Numeral is " + getResult + "</h3></body></html>";
        
     return Response.status(200).entity(output).build(); 
   }
   
   
   @GET
-  @Path("/roman-number={param}")
+  @Path("/roman-number={param}")//http://127.0.0.1:49000/api/converter/roman-number=MM
   @Produces(MediaType.TEXT_HTML)
-  public Response romanNumeralToNumeral(@PathParam("param") String message) {
+  public Response romanNumeralToNumeral(@PathParam("param") String input) {//input == users input we then pass the value over to usersString
     RomanNumeralConverter con = new RomanNumeralConverter();
-        String str = message.toUpperCase();
+        String usersString = input.toUpperCase();
         //Integer.parseInt(str);
-        int getResult = con.romanToDecimal(str);
-        String output = "<html><body><h3>Roman Numeral Entered Was</h3><h1> " + message + "</h1><h3> Converted Roman Numeral to Number is " + getResult + "</h3></body></html>";
+        int getResult = con.romanToDecimal(usersString);
+        String output = "<html><body><h3>Roman Numeral Entered Was</h3><h1> " + input + "</h1><h3> Converted Roman Numeral to Number is " + getResult + "</h3></body></html>";
 					
     return Response.status(200).entity(output).build(); 
   }

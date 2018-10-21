@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 
 
 
-					
+//Not used anymore as everything is in RomanConverter class now					
 @Path("/number") 
 public class RomanNumeralToNumeral {
     
