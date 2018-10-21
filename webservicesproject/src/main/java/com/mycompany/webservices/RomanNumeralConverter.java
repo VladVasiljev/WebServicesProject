@@ -71,6 +71,7 @@ public class RomanNumeralConverter {
         return s;
     }
 
+    //http://www.anyforum.in/question/corejava/string-handling/Roman-Numbers-in-java/796
     // This function returns value of a Roman symbol 
     int value(char r) {
         if (r == 'I') {
@@ -97,6 +98,7 @@ public class RomanNumeralConverter {
         return -1;
     }
 
+     //http://www.anyforum.in/question/corejava/string-handling/Roman-Numbers-in-java/796
     // Finds decimal value of a given romal numeral 
     int romanToDecimal(String usersString) {
         // Initialize result 
